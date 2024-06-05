@@ -1,0 +1,18 @@
+<div class="input-group mb-3" style="width: 500px;">
+  <input type="text" class="form-control" placeholder="" [formControl]="searchControl" (keyup.enter)="search()">
+  <button type="button" class="btn btn-dark" (click)="search()">Search</button>
+</div>
+
+@if (users()) {
+  @for (user of users()?.items; track user.id) {
+    <div class="card mb-1" style="width: 500px; cursor: pointer" (click)="goToDetails(user.id)">
+      <div class="card-body">
+        <h5 class="card-title"> {{ user.login }} </h5>
+      </div>
+    </div>
+  } @empty {
+    <h4 style="text-align: center">No users with this name were found</h4>
+  }
+} @else {
+  <h4 style="text-align: center">Write the name and press "Search"</h4>
+}

@@ -1,0 +1,61 @@
+@if (user()) {
+
+  <div class="card flex-row p-4 gap-4">
+    <div class="d-flex flex-column">
+      <img class="img-thumbnail avatar" alt="avatar" [src]="user()?.avatar_url">
+      <span class="name"> {{ user()?.name }} </span>
+      <span class="login"> {{ user()?.login }} </span>
+
+    </div>
+    <div class="d-flex flex-column justify-content-between" style="min-width: 400px;">
+      <div class="d-flex flex-column">
+        @if (user()?.company) {
+          <div class="d-flex justify-content-between">
+            <span class="text-secondary">company:</span>
+            <span class="value"> {{ user()?.company }} </span>
+          </div>
+        }
+  
+        <div class="d-flex justify-content-between">
+          <span class="text-secondary">type of user:</span>
+          <span class="value"> {{ user()?.type }} </span>
+        </div>
+        @if (user()?.location) {
+          <div class="d-flex justify-content-between">
+            <span class="text-secondary">location:</span>
+            <span class="value"> {{ user()?.location }} </span> 
+          </div>
+        }
+        @if (user()?.email) {
+          <div class="d-flex justify-content-between">
+            <span class="text-secondary">email:</span>
+            <span class="value"> {{ user()?.email }} </span> 
+          </div>
+        }
+        
+        @if (user()?.blog) {
+          <div class="d-flex justify-content-between">
+            <span class="text-secondary">blog:</span>
+            <a class="value" [href]="user()?.blog" target="_blank"> {{ user()?.blog }} </a>
+          </div>
+        }
+        <div class="d-flex justify-content-between">
+          <span class="text-secondary">link:</span>
+          <a class="value" [href]="user()?.html_url" target="_blank"> {{ user()?.html_url }} </a>
+        </div>
+
+      </div>
+      @if (user()?.bio) {
+        <div>
+          <span class="text-secondary">about me:</span>
+          <h5> {{ user()?.bio }} </h5>
+        </div>
+      }
+    </div>
+  
+  </div>
+} @else {
+  <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+}
