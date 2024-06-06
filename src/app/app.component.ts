@@ -13,5 +13,5 @@ import { NavComponent } from './components/nav/nav.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'test-g5';
+  
 }

@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../data/api/auth.service';
 
 @Component({
   selector: 'g5-nav',
@@ -14,9 +15,8 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class NavComponent {
-  #route = inject(ActivatedRoute);
   #router = inject(Router);
-  #cdr = inject(ChangeDetectorRef);
+  authService = inject(AuthService)
 
   lastSegment: WritableSignal<string> = signal('');
 
@@ -25,12 +25,16 @@ export class NavComponent {
       takeUntilDestroyed()
     ).subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.lastSegment.set(event.url)
+        this.lastSegment.set(event.url)        
       }
     });
   }
 
   goToPage(pageName: string) {
     this.#router.navigate([pageName]);
+  }
+
+  public signOut() {
+    this.authService.signOut()
   }
 }

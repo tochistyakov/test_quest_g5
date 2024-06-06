@@ -1,11 +1,11 @@
-<div class="input-group mb-3" style="width: 500px;">
+<div class="input-group mb-3" style="">
   <input type="text" class="form-control" placeholder="" [formControl]="searchControl" (keyup.enter)="search()">
   <button type="button" class="btn btn-dark" (click)="search()">Search</button>
 </div>
 
 @if (users()) {
   @for (user of users()?.items; track user.id) {
-    <div class="card mb-1" style="width: 500px; cursor: pointer" (click)="goToDetails(user.id)">
+    <div class="card mb-1" style=" cursor: pointer" (click)="goToDetails(user.id)">
       <div class="card-body">
         <h5 class="card-title"> {{ user.login }} </h5>
       </div>

@@ -1,0 +1,15 @@
+<form [formGroup]="form" class="card p-4" style="width: 400px;">
+  <input type="text" class="form-control" [ngClass]="{
+      'is-invalid' : form.controls.email.invalid && form.controls.email.dirty && form.controls.email.touched,
+      'is-valid' : form.controls.email.valid && form.controls.email.dirty && form.controls.email.touched,
+      }" placeholder="mail" formControlName="email">
+  <input type="password" class="form-control mt-2" [ngClass]="{
+    'is-invalid' : form.controls.password.invalid && form.controls.password.dirty && form.controls.password.touched,
+    'is-valid' : form.controls.password.valid && form.controls.password.dirty && form.controls.password.touched,
+    }" placeholder="password" formControlName="password">
+  <input type="password" class="form-control mt-2" [ngClass]="{
+    'is-invalid' : form.controls.confirm_password.invalid && form.controls.confirm_password.dirty && form.controls.confirm_password.touched,
+    'is-valid' : form.controls.confirm_password.valid && form.controls.confirm_password.dirty && form.controls.confirm_password.touched,
+    }" placeholder="confirm password" formControlName="confirm_password">
+  <button type="button" class="btn btn-dark mt-4" (click)="signUpWithMailPassword()">Sign Up</button>
+</form>

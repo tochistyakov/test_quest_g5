@@ -50,6 +50,6 @@ export class BlockComponent implements OnDestroy {
   }
 
   public goToDetails(id: number): void {
-    this.#router.navigate(['/details/' + id]);
+    this.#router.navigate(['/detail/' + id]);
   }
 }

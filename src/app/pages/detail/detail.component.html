@@ -1,6 +1,6 @@
 @if (user()) {
 
-  <div class="card flex-row p-4 gap-4">
+  <div class="card p-4 gap-4">
     <div class="d-flex flex-column">
       <img class="img-thumbnail avatar" alt="avatar" [src]="user()?.avatar_url">
       <span class="name"> {{ user()?.name }} </span>
