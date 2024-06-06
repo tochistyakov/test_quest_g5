@@ -14,7 +14,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img [src]="authService.user()?.photoURL ?? '../../../assets/blankdirectory.png'" alt="ava" width="24" height="24" class="d-inline-block align-text-top" style="border-radius: 50%;">
+            <img [src]="authService.user()?.photoURL ?? '../../../assets/blankdirectory.png'" width="24" height="24" class="d-inline-block align-text-top" style="border-radius: 50%;">
             {{ authService.user()?.displayName ?? authService.user()?.email }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

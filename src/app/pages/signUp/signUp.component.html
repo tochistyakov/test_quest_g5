@@ -2,14 +2,15 @@
   <input type="text" class="form-control" [ngClass]="{
       'is-invalid' : form.controls.email.invalid && form.controls.email.dirty && form.controls.email.touched,
       'is-valid' : form.controls.email.valid && form.controls.email.dirty && form.controls.email.touched,
-      }" placeholder="mail" formControlName="email">
+      }" placeholder="mail" formControlName="email" (keyup.enter)="signUpWithMailPassword()">
   <input type="password" class="form-control mt-2" [ngClass]="{
     'is-invalid' : form.controls.password.invalid && form.controls.password.dirty && form.controls.password.touched,
     'is-valid' : form.controls.password.valid && form.controls.password.dirty && form.controls.password.touched,
-    }" placeholder="password" formControlName="password">
+    }" placeholder="password" formControlName="password" (keyup.enter)="signUpWithMailPassword()">
   <input type="password" class="form-control mt-2" [ngClass]="{
     'is-invalid' : form.controls.confirm_password.invalid && form.controls.confirm_password.dirty && form.controls.confirm_password.touched,
     'is-valid' : form.controls.confirm_password.valid && form.controls.confirm_password.dirty && form.controls.confirm_password.touched,
-    }" placeholder="confirm password" formControlName="confirm_password">
+    }" placeholder="confirm password" formControlName="confirm_password" (keyup.enter)="signUpWithMailPassword()">
   <button type="button" class="btn btn-dark mt-4" (click)="signUpWithMailPassword()">Sign Up</button>
+  <button type="button" class="btn btn-outline-secondary mt-2" (click)="goToSignIn()">Sign In</button>
 </form>

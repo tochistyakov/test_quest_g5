@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal, Signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal, WritableSignal } from '@angular/core';
 import { UsersService } from '../../data/api/users.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { of, Subject, switchMap, take, takeUntil } from 'rxjs';
+import { Subject, take, takeUntil } from 'rxjs';
 import { UsersResponse } from '../../data/models/users.interface';
 import { Router } from '@angular/router';
+import { AuthService } from '../../data/api/auth.service';
 
 @Component({
   selector: 'g5-block',

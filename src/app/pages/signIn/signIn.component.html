@@ -1,9 +1,14 @@
 <div [formGroup]="form" class="card p-4" style="width: 400px;">
-  <input type="text" class="form-control" placeholder="mail" formControlName="email">
-  <input type="password" class="form-control mt-2" placeholder="password" formControlName="password"
-    (keyup.enter)="signInWithMailPassword()">
+  <input type="text" class="form-control" [ngClass]="{
+    'is-invalid' : form.controls.email.invalid && form.controls.email.dirty && form.controls.email.touched,
+    'is-valid' : form.controls.email.valid && form.controls.email.dirty && form.controls.email.touched,
+    }" placeholder="mail" formControlName="email" (keyup.enter)="signInWithMailPassword()">
+  <input type="password" class="form-control mt-2" [ngClass]="{
+    'is-invalid' : form.controls.password.invalid && form.controls.password.dirty && form.controls.password.touched,
+    'is-valid' : form.controls.password.valid && form.controls.password.dirty && form.controls.password.touched,
+    }" placeholder="password" formControlName="password" (keyup.enter)="signInWithMailPassword()">
   <button type="button" class="btn btn-dark mt-4" (click)="signInWithMailPassword()">Sign In</button>
-  <button type="button" class="btn btn-outline-dark mt-2" (click)="goToSignUp()">Sign Up</button>
+  <button type="button" class="btn btn-outline-secondary mt-2" (click)="goToSignUp()">Sign Up</button>
   <div class="d-flex align-items-center">
     <span class="separator"></span>
     <span style="margin: 0 4px 0 4px">or</span>
@@ -15,7 +20,7 @@
     Sign In with Google
   </button>
   <button type="button" class="btn btn-light mb-2" (click)="signInWithGithub()">
-    <img width="20" height="20" src="../../../assets/github-logo-svg.svg">
+    <img width="19" height="19" src="../../../assets/github-logo-svg.svg">
     Sign In with GitHub
   </button>
 
